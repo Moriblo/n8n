@@ -1,0 +1,13 @@
+FROM n8nio/n8n:latest
+
+# Usa root temporariamente para instalar pacotes globais
+USER root
+
+# Instala bibliotecas úteis para manipulação de arquivos
+RUN npm install -g pdf-parse xlsx
+
+# Corrige caminho para módulos globais
+ENV NODE_PATH=/usr/local/lib/node_modules
+
+# Retorna ao usuário padrão do n8n
+USER node

@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  n8n:
+    build:
+      context: .
+      dockerfile: Dockerfile.n8n
+    container_name: n8n-container
+    restart: always
+    ports:
+      - "5678:5678"
+    volumes:
+      - ./n8n/n8n-data:/home/node/.n8n
+    environment:
+      - N8N_HOST=localhost              # Gera URLs acessíveis pelo navegador
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - WEBHOOK_TUNNEL_URL=http://localhost:5678  # Garante que webhooks funcionem localmente
+      - TZ=America/Sao_Paulo
+    depends_on:
+      - embedding-api
+      - postgres
+    networks:
+      - n8nnet
+
+  embedding-api:
+    build: ./embedding-api
+    image: n8n-embedding-api  # <-- Nome personalizado da imagem
+    container_name: embedding-api
+    restart: always
+    ports:
+      - "5000:5000"
+    networks:
+      - n8nnet
+
+  postgres:
+    image: ankane/pgvector
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: n8n
+      POSTGRES_PASSWORD: n8npass
+      POSTGRES_DB: embeddings
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+      - ./postgres/pg_hba.custom.conf:/docker-entrypoint-initdb.d/pg_hba.conf
+
+    networks:
+      - n8nnet
+
+  avalsimilar:
+    build: ./avalsimilar
+    container_name: avalsimilar
+    restart: always
+    ports:
+      - "5001:5000"
+    depends_on:
+      - postgres
+    networks:
+      - n8nnet
+
+networks:
+  n8nnet:
+    driver: bridge

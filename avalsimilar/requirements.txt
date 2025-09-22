@@ -1,0 +1,6 @@
+flask              # Framework leve para criar APIs web em Python
+psycopg2-binary    # Driver PostgreSQL otimizado para conectar e executar queries no banco
+gunicorn           # Servidor WSGI eficiente para rodar aplicações Flask em produção
+numpy              # Biblioteca para cálculos vetoriais e operações matemáticas avançadas (útil para manipular embeddings)
+transformers        # Biblioteca de NLP da Hugging Face
+torch               # Backend para deep learning (usado pelos modelos)

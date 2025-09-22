@@ -1,0 +1,12 @@
+flask
+sentence-transformers
+pdfminer.six
+python-docx
+openpyxl
+lxml
+beautifulsoup4
+html5lib
+PyMuPDF
+transformers
+torch
+accelerate

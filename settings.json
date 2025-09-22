@@ -1,0 +1,47 @@
+{
+  // 🐍 Python
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.formatting.provider": "black",
+  "python.testing.unittestEnabled": true,
+  "python.testing.pytestEnabled": false,
+
+  // 🐳 Docker
+  "docker.enableDockerLanguages": true,
+  "docker.languageserver.formatter.enable": true,
+  "docker.explorerRefreshInterval": 300,
+
+  // 🧪 Terminal
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.profiles.windows": {
+    "Git Bash": {
+      "path": "C:\\Program Files\\Git\\bin\\bash.exe",
+      "env": {
+        "PYTHONPATH": "/c/venv/.__Projetos/n8n",
+        "DOCKER_BUILDKIT": "1"
+      }
+    }
+  },
+  "terminal.integrated.shellIntegration.enabled": true,
+
+  // 📦 Extensões úteis
+  "extensions.ignoreRecommendations": false,
+  "extensions.showRecommendationsOnlyOnDemand": false,
+
+  // 🧹 Editor
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+
+  // 🔍 Arquivos
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.DS_Store": true
+  },
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000
+}

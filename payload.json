@@ -1,0 +1,4 @@
+{
+  "file_name": "exemplo.txt",
+  "file_data": "Este é um texto de teste que será dividido em chunks para gerar embeddings com o modelo local."
+}

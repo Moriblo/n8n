@@ -1,0 +1,7 @@
+FROM ankane/pgvector
+
+# Copia o pg_hba.conf customizado para o local correto ANTES do PostgreSQL iniciar
+COPY pg_hba.custom.conf /etc/pg_hba.conf
+
+# Define o arquivo customizado como padrão no postgresql.conf
+RUN echo "hba_file = '/etc/pg_hba.conf'" >> /usr/share/postgresql/postgresql.conf.sample

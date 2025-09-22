@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste de Upload para Webhook</title>
+</head>
+<body>
+  <h2>Enviar arquivo .txt para Webhook</h2>
+  <form action="http://localhost:5678/webhook-test/9fd32e44-9a4e-4ade-b752-0be6497b5bfa" method="POST" enctype="multipart/form-data">
+    <label for="arquivo">Escolha o arquivo .txt:</label><br><br>
+    <input type="file" name="data" id="arquivo" accept=".txt" required><br><br>
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>
