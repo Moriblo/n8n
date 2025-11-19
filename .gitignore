@@ -1,0 +1,8 @@
+# Ignorar arquivos grandes e ambientes
+*.sqlite
+*.dll
+*.lib
+*.safetensors
+.env/
+.venv/
+node_modules/
